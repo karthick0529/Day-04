@@ -1,0 +1,71 @@
+2. Do the below programs in arrow functions.
+a)Print odd numbers in an array
+b)Convert all the strings to title caps in a string array
+c)Sum of all numbers in an array
+d)Return all the prime numbers in an array
+e)Return all the palindromes in an array
+
+// Print odd numbers in an array
+const printOddNumbers = arr => {
+    arr.forEach(num => {
+      if (num % 2 !== 0) {
+        console.log(num);
+      }
+    });
+  };
+  
+  // Convert all the strings to title caps in a string array
+  const convertToTitleCaps = arr => {
+    return arr.map(str => {
+      var titleCaseStr = str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+      return titleCaseStr;
+    });
+  };
+  
+  // Sum of all numbers in an array
+  const sumArray = arr => {
+    return arr.reduce((acc, num) => {
+      var sum = acc + num;
+      return sum;
+    }, 0);
+  };
+  
+  // Return all the prime numbers in an array
+  const primeNumbers = arr => {
+    const isPrime = num => {
+      if (num <= 1) return false;
+      for (var i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) return false;
+      }
+      return true;
+    };
+  
+    return arr.filter(num => isPrime(num));
+  };
+  
+  // Return all the palindromes in an array
+  const palindromesInArray = arr => {
+    const isPalindrome = str => {
+      const reversed = str.split('').reverse().join('');
+      return str === reversed;
+    };
+  
+    return arr.filter(str => isPalindrome(str));
+};
+
+  // User-defined input
+  const numbers = [1, 2, 3, 4, 5];
+  const strings = ['hello', 'world', 'goodbye', 'universe'];
+  const sumArrayResult = sumArray(numbers);
+  const primeNumbersResult = primeNumbers(numbers);
+  const inputArray = ["level","world"];
+  
+  // Output
+  console.log("Odd numbers:");
+  printOddNumbers(numbers);
+  console.log("Strings in title caps:");
+  console.log(convertToTitleCaps(strings));
+  console.log("Sum of all numbers:", sumArrayResult);
+  console.log("Prime numbers:", primeNumbersResult);
+  console.log(palindromesInArray(inputArray));
+  
